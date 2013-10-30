@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0527780182191EA0070E47B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052777F182191EA0070E47B /* Foundation.framework */; };
+		D0527782182191EA0070E47B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527781182191EA0070E47B /* CoreGraphics.framework */; };
+		D0527784182191EA0070E47B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527783182191EA0070E47B /* UIKit.framework */; };
+		D052778A182191EA0070E47B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0527788182191EA0070E47B /* InfoPlist.strings */; };
+		D052778C182191EA0070E47B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = D052778B182191EA0070E47B /* main.mm */; };
+		D0527790182191EA0070E47B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D052778F182191EA0070E47B /* AppDelegate.m */; };
+		D0527793182191EA0070E47B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0527791182191EA0070E47B /* Main.storyboard */; };
+		D0527796182191EA0070E47B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0527795182191EA0070E47B /* MainViewController.m */; };
+		D0527798182191EA0070E47B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0527797182191EA0070E47B /* Images.xcassets */; };
+		D052779F182191EA0070E47B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052779E182191EA0070E47B /* XCTest.framework */; };
+		D05277A0182191EA0070E47B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052777F182191EA0070E47B /* Foundation.framework */; };
+		D05277A1182191EA0070E47B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527783182191EA0070E47B /* UIKit.framework */; };
+		D05277A9182191EA0070E47B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D05277A7182191EA0070E47B /* InfoPlist.strings */; };
+		D05277AB182191EA0070E47B /* CocoaheadsSpheroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D05277AA182191EA0070E47B /* CocoaheadsSpheroTests.m */; };
+		D0527807182192DA0070E47B /* RobotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527804182192DA0070E47B /* RobotKit.framework */; };
+		D0527808182192DB0070E47B /* RobotUIKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0527805182192DA0070E47B /* RobotUIKit.bundle */; };
+		D0527809182192DB0070E47B /* RobotUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527806182192DA0070E47B /* RobotUIKit.framework */; };
+		D052780D182193200070E47B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780A182193200070E47B /* CoreMotion.framework */; };
+		D052780E182193200070E47B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780B182193200070E47B /* ExternalAccessory.framework */; };
+		D052780F182193200070E47B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780C182193200070E47B /* GameKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D05277A2182191EA0070E47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0527774182191EA0070E47B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D052777B182191EA0070E47B;
+			remoteInfo = CocoaheadsSphero;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D052777C182191EA0070E47B /* CocoaheadsSphero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaheadsSphero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D052777F182191EA0070E47B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D0527781182191EA0070E47B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D0527783182191EA0070E47B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D0527787182191EA0070E47B /* CocoaheadsSphero-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaheadsSphero-Info.plist"; sourceTree = "<group>"; };
+		D0527789182191EA0070E47B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D052778B182191EA0070E47B /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		D052778D182191EA0070E47B /* CocoaheadsSphero-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CocoaheadsSphero-Prefix.pch"; sourceTree = "<group>"; };
+		D052778E182191EA0070E47B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D052778F182191EA0070E47B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D0527792182191EA0070E47B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0527794182191EA0070E47B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D0527795182191EA0070E47B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D0527797182191EA0070E47B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D052779D182191EA0070E47B /* CocoaheadsSpheroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaheadsSpheroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D052779E182191EA0070E47B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D05277A6182191EA0070E47B /* CocoaheadsSpheroTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaheadsSpheroTests-Info.plist"; sourceTree = "<group>"; };
+		D05277A8182191EA0070E47B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D05277AA182191EA0070E47B /* CocoaheadsSpheroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaheadsSpheroTests.m; sourceTree = "<group>"; };
+		D0527804182192DA0070E47B /* RobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotKit.framework; path = ../SDK/frameworks/RobotKit.framework; sourceTree = "<group>"; };
+		D0527805182192DA0070E47B /* RobotUIKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RobotUIKit.bundle; path = ../SDK/frameworks/RobotUIKit.bundle; sourceTree = "<group>"; };
+		D0527806182192DA0070E47B /* RobotUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotUIKit.framework; path = ../SDK/frameworks/RobotUIKit.framework; sourceTree = "<group>"; };
+		D052780A182193200070E47B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D052780B182193200070E47B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		D052780C182193200070E47B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0527779182191EA0070E47B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D052780D182193200070E47B /* CoreMotion.framework in Frameworks */,
+				D052780E182193200070E47B /* ExternalAccessory.framework in Frameworks */,
+				D052780F182193200070E47B /* GameKit.framework in Frameworks */,
+				D0527809182192DB0070E47B /* RobotUIKit.framework in Frameworks */,
+				D0527807182192DA0070E47B /* RobotKit.framework in Frameworks */,
+				D0527782182191EA0070E47B /* CoreGraphics.framework in Frameworks */,
+				D0527784182191EA0070E47B /* UIKit.framework in Frameworks */,
+				D0527780182191EA0070E47B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D052779A182191EA0070E47B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D052779F182191EA0070E47B /* XCTest.framework in Frameworks */,
+				D05277A1182191EA0070E47B /* UIKit.framework in Frameworks */,
+				D05277A0182191EA0070E47B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0527773182191EA0070E47B = {
+			isa = PBXGroup;
+			children = (
+				D0527785182191EA0070E47B /* CocoaheadsSphero */,
+				D05277A4182191EA0070E47B /* CocoaheadsSpheroTests */,
+				D052777E182191EA0070E47B /* Frameworks */,
+				D052777D182191EA0070E47B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D052777D182191EA0070E47B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D052777C182191EA0070E47B /* CocoaheadsSphero.app */,
+				D052779D182191EA0070E47B /* CocoaheadsSpheroTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D052777E182191EA0070E47B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D052780A182193200070E47B /* CoreMotion.framework */,
+				D052780B182193200070E47B /* ExternalAccessory.framework */,
+				D052780C182193200070E47B /* GameKit.framework */,
+				D0527804182192DA0070E47B /* RobotKit.framework */,
+				D0527805182192DA0070E47B /* RobotUIKit.bundle */,
+				D0527806182192DA0070E47B /* RobotUIKit.framework */,
+				D052777F182191EA0070E47B /* Foundation.framework */,
+				D0527781182191EA0070E47B /* CoreGraphics.framework */,
+				D0527783182191EA0070E47B /* UIKit.framework */,
+				D052779E182191EA0070E47B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0527785182191EA0070E47B /* CocoaheadsSphero */ = {
+			isa = PBXGroup;
+			children = (
+				D052778E182191EA0070E47B /* AppDelegate.h */,
+				D052778F182191EA0070E47B /* AppDelegate.m */,
+				D0527791182191EA0070E47B /* Main.storyboard */,
+				D0527794182191EA0070E47B /* MainViewController.h */,
+				D0527795182191EA0070E47B /* MainViewController.m */,
+				D0527797182191EA0070E47B /* Images.xcassets */,
+				D0527786182191EA0070E47B /* Supporting Files */,
+			);
+			path = CocoaheadsSphero;
+			sourceTree = "<group>";
+		};
+		D0527786182191EA0070E47B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0527787182191EA0070E47B /* CocoaheadsSphero-Info.plist */,
+				D0527788182191EA0070E47B /* InfoPlist.strings */,
+				D052778B182191EA0070E47B /* main.mm */,
+				D052778D182191EA0070E47B /* CocoaheadsSphero-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D05277A4182191EA0070E47B /* CocoaheadsSpheroTests */ = {
+			isa = PBXGroup;
+			children = (
+				D05277AA182191EA0070E47B /* CocoaheadsSpheroTests.m */,
+				D05277A5182191EA0070E47B /* Supporting Files */,
+			);
+			path = CocoaheadsSpheroTests;
+			sourceTree = "<group>";
+		};
+		D05277A5182191EA0070E47B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D05277A6182191EA0070E47B /* CocoaheadsSpheroTests-Info.plist */,
+				D05277A7182191EA0070E47B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D052777B182191EA0070E47B /* CocoaheadsSphero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D05277AE182191EA0070E47B /* Build configuration list for PBXNativeTarget "CocoaheadsSphero" */;
+			buildPhases = (
+				D0527778182191EA0070E47B /* Sources */,
+				D0527779182191EA0070E47B /* Frameworks */,
+				D052777A182191EA0070E47B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CocoaheadsSphero;
+			productName = CocoaheadsSphero;
+			productReference = D052777C182191EA0070E47B /* CocoaheadsSphero.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D052779C182191EA0070E47B /* CocoaheadsSpheroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D05277B1182191EA0070E47B /* Build configuration list for PBXNativeTarget "CocoaheadsSpheroTests" */;
+			buildPhases = (
+				D0527799182191EA0070E47B /* Sources */,
+				D052779A182191EA0070E47B /* Frameworks */,
+				D052779B182191EA0070E47B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D05277A3182191EA0070E47B /* PBXTargetDependency */,
+			);
+			name = CocoaheadsSpheroTests;
+			productName = CocoaheadsSpheroTests;
+			productReference = D052779D182191EA0070E47B /* CocoaheadsSpheroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0527774182191EA0070E47B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Brian Buck";
+				TargetAttributes = {
+					D052779C182191EA0070E47B = {
+						TestTargetID = D052777B182191EA0070E47B;
+					};
+				};
+			};
+			buildConfigurationList = D0527777182191EA0070E47B /* Build configuration list for PBXProject "CocoaheadsSphero" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0527773182191EA0070E47B;
+			productRefGroup = D052777D182191EA0070E47B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D052777B182191EA0070E47B /* CocoaheadsSphero */,
+				D052779C182191EA0070E47B /* CocoaheadsSpheroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D052777A182191EA0070E47B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0527798182191EA0070E47B /* Images.xcassets in Resources */,
+				D0527808182192DB0070E47B /* RobotUIKit.bundle in Resources */,
+				D052778A182191EA0070E47B /* InfoPlist.strings in Resources */,
+				D0527793182191EA0070E47B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D052779B182191EA0070E47B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D05277A9182191EA0070E47B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0527778182191EA0070E47B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0527796182191EA0070E47B /* MainViewController.m in Sources */,
+				D0527790182191EA0070E47B /* AppDelegate.m in Sources */,
+				D052778C182191EA0070E47B /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0527799182191EA0070E47B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D05277AB182191EA0070E47B /* CocoaheadsSpheroTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D05277A3182191EA0070E47B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D052777B182191EA0070E47B /* CocoaheadsSphero */;
+			targetProxy = D05277A2182191EA0070E47B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0527788182191EA0070E47B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0527789182191EA0070E47B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D0527791182191EA0070E47B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0527792182191EA0070E47B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D05277A7182191EA0070E47B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D05277A8182191EA0070E47B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D05277AC182191EA0070E47B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D05277AD182191EA0070E47B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D05277AF182191EA0070E47B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/bbuck/Documents/Dev/Sphero/SDK/frameworks,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";
+				INFOPLIST_FILE = "CocoaheadsSphero/CocoaheadsSphero-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+					"-lsqlite3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D05277B0182191EA0070E47B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/bbuck/Documents/Dev/Sphero/SDK/frameworks,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";
+				INFOPLIST_FILE = "CocoaheadsSphero/CocoaheadsSphero-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+					"-lsqlite3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D05277B2182191EA0070E47B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaheadsSphero.app/CocoaheadsSphero";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CocoaheadsSpheroTests/CocoaheadsSpheroTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D05277B3182191EA0070E47B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaheadsSphero.app/CocoaheadsSphero";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";
+				INFOPLIST_FILE = "CocoaheadsSpheroTests/CocoaheadsSpheroTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0527777182191EA0070E47B /* Build configuration list for PBXProject "CocoaheadsSphero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D05277AC182191EA0070E47B /* Debug */,
+				D05277AD182191EA0070E47B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D05277AE182191EA0070E47B /* Build configuration list for PBXNativeTarget "CocoaheadsSphero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D05277AF182191EA0070E47B /* Debug */,
+				D05277B0182191EA0070E47B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D05277B1182191EA0070E47B /* Build configuration list for PBXNativeTarget "CocoaheadsSpheroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D05277B2182191EA0070E47B /* Debug */,
+				D05277B3182191EA0070E47B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0527774182191EA0070E47B /* Project object */;
+}

@@ -10,13 +10,16 @@
 #import "RobotKit/RobotKit.h"
 #import "RobotUIKit/RobotUIKit.h"
 
+#define ARC4RANDOM_MAX  0x100000000
+
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
 
--(void)viewDidLoad {
+-(void)viewDidLoad
+{
     [super viewDidLoad];
     
     /*Register for application lifecycle notifications so we known when to connect and disconnect from the robot*/
@@ -28,43 +31,73 @@
     
     calibrateHandler = [[RUICalibrateGestureHandler alloc] initWithView:self.view];
 }
--(void)appWillResignActive:(NSNotification*)notification {
+
+-(void)appWillResignActive:(NSNotification*)notification
+{
     /*When the application is entering the background we need to close the connection to the robot*/
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
     [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:0.0];
     [[RKRobotProvider sharedRobotProvider] closeRobotConnection];
 }
 
--(void)appDidBecomeActive:(NSNotification*)notification {
+-(void)appDidBecomeActive:(NSNotification*)notification
+{
     /*When the application becomes active after entering the background we try to connect to the robot*/
     [self setupRobotConnection];
 }
 
-- (void)handleRobotOnline {
+- (void)handleRobotOnline
+{
     /*The robot is now online, we can begin sending commands*/
-    if(!robotOnline) {
+    if(!robotOnline)
+    {
         /*Only start the blinking loop once*/
         [self toggleLED];
+//        [self driveforward];
     }
     robotOnline = YES;
 }
 
-- (void)toggleLED {
+- (void)toggleLED
+{
     /*Toggle the LED on and off*/
-    if (ledON) {
+    if (ledON)
+    {
         ledON = NO;
         [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:0.0];
-    } else {
+    }
+    else
+    {
         ledON = YES;
-        [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:1.0];
+        
+        // random rgb colors
+        double redRand = ((double)arc4random() / ARC4RANDOM_MAX);
+        double greenRand = ((double)arc4random() / ARC4RANDOM_MAX);
+        double blueRand = ((double)arc4random() / ARC4RANDOM_MAX);
+        
+        [RKRGBLEDOutputCommand sendCommandWithRed:redRand green:greenRand blue:blueRand];
     }
     [self performSelector:@selector(toggleLED) withObject:nil afterDelay:0.5];
 }
 
--(void)setupRobotConnection {
+- (void)stop
+{
+    [RKRollCommand sendStop];
+}
+
+- (void)driveforward
+{
+    [RKRollCommand sendCommandWithHeading:0.0 velocity:0.5];
+    [self performSelector:@selector(stop) withObject:nil afterDelay:2.0];
+}
+
+- (void)setupRobotConnection
+{
     /*Try to connect to the robot*/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRobotOnline) name:RKDeviceConnectionOnlineNotification object:nil];
-    if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {
+    
+    if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl])
+    {
         [[RKRobotProvider sharedRobotProvider] openRobotConnection];
     }
 }

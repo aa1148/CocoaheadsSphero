@@ -361,6 +361,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -394,6 +395,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -416,6 +418,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -439,6 +442,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -504,6 +508,7 @@
 				D05277B0182191EA0070E47B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D05277B1182191EA0070E47B /* Build configuration list for PBXNativeTarget "CocoaheadsSpheroTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +517,7 @@
 				D05277B3182191EA0070E47B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

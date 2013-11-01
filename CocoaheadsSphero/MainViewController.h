@@ -10,16 +10,5 @@
 #import <RobotUIKit/RobotUIKit.h>
 
 @interface MainViewController : UIViewController
-{
-    BOOL ledON;
-    BOOL robotOnline;
-    RUICalibrateGestureHandler *calibrateHandler;
-}
-
-- (void)setupRobotConnection;
-- (void)handleRobotOnline;
-- (void)toggleLED;
-- (void)stop;
-- (void)driveforward;
 
 @end

@@ -70,6 +70,22 @@
     isBlinkingColors = NO;
 }
 
+#pragma mark - RK functions
+
+/**
+ Do stuff to restore some initial state
+ */
+- (void)restoreRobotState
+{
+    //Turn on Stabilization
+    [RKStabilizationCommand sendCommandWithState:(RKStabilizationStateOn)];
+    //Send Roll Stop
+    [RKRollCommand sendStop];
+    //Change heading back to 0
+    [RKRollCommand sendCommandWithHeading:0 velocity:0.f];
+    [RKRGBLEDOutputCommand sendCommandWithRed:0.f green:0.f blue:1.f];
+}
+
 /**
  Call this on backgroud queue
  */
@@ -124,11 +140,108 @@
     [RKRollCommand sendStop];
 }
 
-- (void)driveforward:(float)heading;
+- (void)driveforward:(int)heading;
 {
-    assert(heading >= 0.f && heading < 360.f);
+    assert(heading >= 0 && heading < 360);
     // velocity range 0-1 where 0 = stop and 1 = full throttle
     [RKRollCommand sendCommandWithHeading:heading velocity:0.75f];
+}
+
+/**
+ Macro : Sphero rolls a square!
+ */
+- (void)runSquareShapeRollMacro
+{
+    //Create a new macro object to send to Sphero
+    RKMacroObject *macro = [RKMacroObject new];
+    
+    //Change Color to green
+    [macro addCommand:[RKMCRGB commandWithRed:0.f green:1.f blue:0.f delay:0]];
+    //Sphero drives forward in the 0 angle
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.75f heading:0 delay:750]];
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:0 delay:3000]];
+    
+    //Have Sphero to come to stop to make sharp turn
+    [macro addCommand:[RKMCWaitUntilStop commandWithDelay:500]];
+    
+    //Change Color to blue
+    [macro addCommand:[RKMCRGB commandWithRed:0.f green:0.f blue:1.f delay:0]];
+    //Sphero drives forward in the 90 angle
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.75f heading:90 delay:750]];
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:90 delay:3000]];
+    //Have Sphero to come to stop to make sharp turn
+    [macro addCommand:[RKMCWaitUntilStop commandWithDelay:500]];
+    
+    //Change Color to yellow
+    [macro addCommand:[RKMCRGB commandWithRed:1.f green:1.f blue:0.f delay:0]];
+    //Sphero drives forward in the 180 angle
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.75f heading:180 delay:750]];
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:180 delay:3000]];
+    //Have Sphero to come to stop to make sharp turn
+    [macro addCommand:[RKMCWaitUntilStop commandWithDelay:500]];
+    
+    //Change Color to red
+    [macro addCommand:[RKMCRGB commandWithRed:1.f green:0.f blue:0.f delay:0]];
+    //Sphero drives forward in the 270 angle
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.75f heading:270 delay:750]];
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:270 delay:3000]];
+    //Have Sphero to come to stop to make sharp turn
+    [macro addCommand:[RKMCWaitUntilStop commandWithDelay:500]];
+    
+    //Change Color to white
+    [macro addCommand:[RKMCRGB commandWithRed:1.f green:1.f blue:1.f delay:0]];
+    //Sphero comes to stop in the 0 angle
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:0 delay:3000]];
+  
+    //Send full command dowm to Sphero to play
+    [macro playMacro];
+}
+
+/**
+ Macro : Sphero rolls a figure 8!!
+ */
+- (void)runFigureEightRollMacro
+{
+    //Create a new macro object to send to Sphero
+    RKMacroObject *macro = [RKMacroObject new];
+    
+    //Tell Robot to look forward and to start driving
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.4f heading:0 delay:1000]];
+    
+    //Start Loop
+    [macro addCommand:[RKMCLoopFor commandWithRepeats:4]];
+    
+    ///Tell Robot to perform 1st turn in the postive direction.
+    [macro addCommand:[RKMCRotateOverTime commandWithRotation:360 delay:3000]];
+    
+    //Add delay to allow the rotateovertime command to perform.
+    [macro addCommand:[RKMCDelay commandWithDelay:3000]];
+    
+    //Rotate to pertform the 2nd turn in the negitive direction
+    [macro addCommand:[RKMCRotateOverTime commandWithRotation:-360 delay:3000]];
+    
+    //Add delay to allow the rotateovertime command to perform.
+    [macro addCommand:[RKMCDelay commandWithDelay:3000]];
+    
+    //Finsh loop
+    [macro addCommand:[RKMCLoopEnd command]];
+    
+    //Come to stop
+    [macro addCommand:[RKMCRoll commandWithSpeed:0.f heading:0 delay:500]];
+
+    //Send full command dowm to Sphero to play
+    [macro playMacro];
+}
+
+/**
+ Aborts current running macro and set robot back to an initial state.
+ */
+- (void)runMacroAbort
+{
+    //Abort Command
+    [RKAbortMacroCommand sendCommand];
+    // restore
+    [self restoreRobotState];
 }
 
 #pragma mark - UI action
@@ -147,22 +260,37 @@
 
 - (IBAction)drive0Heading:(id)sender
 {
-    [self driveforward:0.f];
+    [self driveforward:0];
 }
 
 - (IBAction)drive90Heading:(id)sender
 {
-    [self driveforward:90.f];
+    [self driveforward:90];
 }
 
 - (IBAction)drive180Heading:(id)sender
 {
-    [self driveforward:180.f];
+    [self driveforward:180];
 }
 
 - (IBAction)drive270Heading:(id)sender
 {
-    [self driveforward:270.f];
+    [self driveforward:270];
+}
+
+- (IBAction)goSquare:(id)sender
+{
+    [self runSquareShapeRollMacro];
+}
+
+- (IBAction)goFigureEight:(id)sender
+{
+    [self runFigureEightRollMacro];
+}
+
+- (IBAction)abortAbort:(id)sender
+{
+    [self runMacroAbort];
 }
 
 @end

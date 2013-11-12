@@ -21,12 +21,12 @@
 		D05277A1182191EA0070E47B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527783182191EA0070E47B /* UIKit.framework */; };
 		D05277A9182191EA0070E47B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D05277A7182191EA0070E47B /* InfoPlist.strings */; };
 		D05277AB182191EA0070E47B /* CocoaheadsSpheroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D05277AA182191EA0070E47B /* CocoaheadsSpheroTests.m */; };
-		D0527807182192DA0070E47B /* RobotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527804182192DA0070E47B /* RobotKit.framework */; };
-		D0527808182192DB0070E47B /* RobotUIKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0527805182192DA0070E47B /* RobotUIKit.bundle */; };
-		D0527809182192DB0070E47B /* RobotUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0527806182192DA0070E47B /* RobotUIKit.framework */; };
 		D052780D182193200070E47B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780A182193200070E47B /* CoreMotion.framework */; };
 		D052780E182193200070E47B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780B182193200070E47B /* ExternalAccessory.framework */; };
 		D052780F182193200070E47B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052780C182193200070E47B /* GameKit.framework */; };
+		D0CF4BC81832CAD30004A9D2 /* RobotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CF4BC61832CAD30004A9D2 /* RobotKit.framework */; };
+		D0CF4BC91832CAD30004A9D2 /* RobotUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CF4BC71832CAD30004A9D2 /* RobotUIKit.framework */; };
+		D0CF4BCB1832CAE80004A9D2 /* RobotUIKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0CF4BCA1832CAE80004A9D2 /* RobotUIKit.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +59,12 @@
 		D05277A6182191EA0070E47B /* CocoaheadsSpheroTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaheadsSpheroTests-Info.plist"; sourceTree = "<group>"; };
 		D05277A8182191EA0070E47B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D05277AA182191EA0070E47B /* CocoaheadsSpheroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaheadsSpheroTests.m; sourceTree = "<group>"; };
-		D0527804182192DA0070E47B /* RobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotKit.framework; path = ../SDK/frameworks/RobotKit.framework; sourceTree = "<group>"; };
-		D0527805182192DA0070E47B /* RobotUIKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RobotUIKit.bundle; path = ../SDK/frameworks/RobotUIKit.bundle; sourceTree = "<group>"; };
-		D0527806182192DA0070E47B /* RobotUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotUIKit.framework; path = ../SDK/frameworks/RobotUIKit.framework; sourceTree = "<group>"; };
 		D052780A182193200070E47B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		D052780B182193200070E47B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		D052780C182193200070E47B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		D0CF4BC61832CAD30004A9D2 /* RobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotKit.framework; path = CocoaheadsSphero/Vendor/RobotKit.framework; sourceTree = "<group>"; };
+		D0CF4BC71832CAD30004A9D2 /* RobotUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RobotUIKit.framework; path = CocoaheadsSphero/Vendor/RobotUIKit.framework; sourceTree = "<group>"; };
+		D0CF4BCA1832CAE80004A9D2 /* RobotUIKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RobotUIKit.bundle; path = CocoaheadsSphero/Vendor/RobotUIKit.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +72,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CF4BC81832CAD30004A9D2 /* RobotKit.framework in Frameworks */,
+				D0CF4BC91832CAD30004A9D2 /* RobotUIKit.framework in Frameworks */,
 				D052780D182193200070E47B /* CoreMotion.framework in Frameworks */,
 				D052780E182193200070E47B /* ExternalAccessory.framework in Frameworks */,
 				D052780F182193200070E47B /* GameKit.framework in Frameworks */,
-				D0527809182192DB0070E47B /* RobotUIKit.framework in Frameworks */,
-				D0527807182192DA0070E47B /* RobotKit.framework in Frameworks */,
 				D0527782182191EA0070E47B /* CoreGraphics.framework in Frameworks */,
 				D0527784182191EA0070E47B /* UIKit.framework in Frameworks */,
 				D0527780182191EA0070E47B /* Foundation.framework in Frameworks */,
@@ -118,12 +118,12 @@
 		D052777E182191EA0070E47B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0CF4BCA1832CAE80004A9D2 /* RobotUIKit.bundle */,
+				D0CF4BC61832CAD30004A9D2 /* RobotKit.framework */,
+				D0CF4BC71832CAD30004A9D2 /* RobotUIKit.framework */,
 				D052780A182193200070E47B /* CoreMotion.framework */,
 				D052780B182193200070E47B /* ExternalAccessory.framework */,
 				D052780C182193200070E47B /* GameKit.framework */,
-				D0527804182192DA0070E47B /* RobotKit.framework */,
-				D0527805182192DA0070E47B /* RobotUIKit.bundle */,
-				D0527806182192DA0070E47B /* RobotUIKit.framework */,
 				D052777F182191EA0070E47B /* Foundation.framework */,
 				D0527781182191EA0070E47B /* CoreGraphics.framework */,
 				D0527783182191EA0070E47B /* UIKit.framework */,
@@ -252,7 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0527798182191EA0070E47B /* Images.xcassets in Resources */,
-				D0527808182192DB0070E47B /* RobotUIKit.bundle in Resources */,
+				D0CF4BCB1832CAE80004A9D2 /* RobotUIKit.bundle in Resources */,
 				D052778A182191EA0070E47B /* InfoPlist.strings in Resources */,
 				D0527793182191EA0070E47B /* Main.storyboard in Resources */,
 			);
@@ -359,7 +359,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -393,6 +393,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -407,6 +408,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bbuck/Documents/Dev/Sphero/SDK/frameworks,
+					/Users/bbuck/Documents/Dev/Sphero/CocoaheadsSphero/CocoaheadsSphero/Vendor,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";
@@ -431,6 +433,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/bbuck/Documents/Dev/Sphero/SDK/frameworks,
+					/Users/bbuck/Documents/Dev/Sphero/CocoaheadsSphero/CocoaheadsSphero/Vendor,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaheadsSphero/CocoaheadsSphero-Prefix.pch";

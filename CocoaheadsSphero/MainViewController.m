@@ -20,6 +20,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIButton * blinkColorButton;
+@property (strong, nonatomic) IBOutlet UISwitch * sensorStreamSwitch;
 
 @end
 
@@ -43,6 +44,16 @@
 {
     /* When the application is entering the background we need to close the connection to the robot */
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
+    
+    // Turn off data streaming
+    [RKSetDataStreamingCommand sendCommandWithSampleRateDivisor:0
+                                                   packetFrames:0
+                                                     sensorMask:RKDataStreamingMaskOff
+                                                    packetCount:0];
+    // Unregister for async data packets
+    [[RKDeviceMessenger sharedMessenger] removeDataStreamingObserver:self];
+    
+    // close connection
     [[RKRobotProvider sharedRobotProvider] closeRobotConnection];
 }
 
@@ -66,8 +77,76 @@
 - (void)handleRobotOnline
 {
     /* The robot is now online, we can begin sending commands */
+    if (! robotOnline)
+    {
+        [RKSetDataStreamingCommand sendCommandStopStreaming];
+        
+        [self sendSetDataStreamingCommand];
+        
+        // Register for async data streaming packets
+        [[RKDeviceMessenger sharedMessenger] addDataStreamingObserver:self selector:@selector(handleAsyncData:)];
+    }
     robotOnline = YES;
     isBlinkingColors = NO;
+}
+
+-(void)sendSetDataStreamingCommand
+{
+    // Requesting the Accelerometer X, Y, and Z filtered (in Gs)
+    //            the IMU Angles roll, pitch, and yaw (in degrees)
+    //            the Quaternion data q0, q1, q2, and q3 (in 1/10000) of a Q
+    RKDataStreamingMask mask =  (RKDataStreamingMaskAccelerometerFilteredAll |
+                                RKDataStreamingMaskIMUAnglesFilteredAll   |
+                                RKDataStreamingMaskQuaternionAll);
+    
+    // Sphero samples this data at 400 Hz.  The divisor sets the sample
+    // rate you want it to store frames of data.  In this case 400Hz/40 = 10Hz
+    uint16_t divisor = 40;
+    
+    // Packet frames is the number of frames Sphero will store before it sends
+    // an async data packet to the iOS device
+    uint16_t packetFrames = 1;
+    
+    // Count is the number of async data packets Sphero will send you before
+    // it stops.  Set a count of 0 for infinite data streaming.
+    uint8_t count = 0;
+    
+    // Send command to Sphero
+    [RKSetDataStreamingCommand sendCommandWithSampleRateDivisor:divisor
+                                                   packetFrames:packetFrames
+                                                     sensorMask:mask
+                                                    packetCount:count];
+}
+
+- (void)handleAsyncData:(RKDeviceAsyncData *)asyncData
+{
+    // Need to check which type of async data is received as this method will be called for
+    // data streaming packets and sleep notification packets. We are going to ingnore the sleep
+    // notifications.
+    if ([asyncData isKindOfClass:[RKDeviceSensorsAsyncData class]])
+    {
+        // Received sensor data, so display it to the user.
+        RKDeviceSensorsAsyncData *sensorsAsyncData = (RKDeviceSensorsAsyncData *)asyncData;
+        RKDeviceSensorsData *sensorsData = [sensorsAsyncData.dataFrames lastObject];
+        RKAccelerometerData *accelerometerData = sensorsData.accelerometerData;
+        RKAttitudeData *attitudeData = sensorsData.attitudeData;
+        RKQuaternionData *quaternionData = sensorsData.quaternionData;
+        
+        // Print data to the text fields
+        if (_sensorStreamSwitch.on)
+        {
+            NSLog(@"Accel X: %.6f", accelerometerData.acceleration.x);
+            NSLog(@"Accel Y: %.6f", accelerometerData.acceleration.y);
+            NSLog(@"Accel Z: %.6f", accelerometerData.acceleration.z);
+            NSLog(@"Pitch: %.0f", attitudeData.pitch);
+            NSLog(@"Roll: %.0f", attitudeData.roll);
+            NSLog(@"Yaw: %.0f", attitudeData.yaw);
+            NSLog(@"Quaternion q0: %.6f", quaternionData.quaternions.q0);
+            NSLog(@"Quaternion q1: %.6f", quaternionData.quaternions.q1);
+            NSLog(@"Quaternion q2: %.6f", quaternionData.quaternions.q2);
+            NSLog(@"Quaternion q3: %.6f", quaternionData.quaternions.q3);
+        }
+    }
 }
 
 #pragma mark - RK functions
@@ -143,6 +222,7 @@
 - (void)driveforward:(int)heading;
 {
     assert(heading >= 0 && heading < 360);
+    
     // velocity range 0-1 where 0 = stop and 1 = full throttle
     [RKRollCommand sendCommandWithHeading:heading velocity:0.75f];
 }
